@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bn6gufa4e7toh"]
 
-[ext_resource type="Script" uid="uid://b7o4a0scebwrq" path="res://main.gd" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://b08hogcbcga5s" path="res://zombie.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://b7o4a0scebwrq" path="res://scripts/main/main.gd" id="1_02nsg"]
+[ext_resource type="PackedScene" uid="uid://b08hogcbcga5s" path="res://scenes/ui/zombie.tscn" id="2_vspwy"]
+[ext_resource type="PackedScene" uid="uid://8a8hhmfdl4ds" path="res://scenes/ui/hud.tscn" id="3_7n028"]
 
 [sub_resource type="Curve2D" id="Curve2D_7dm0k"]
 _data = {
@@ -10,11 +11,11 @@ _data = {
 point_count = 6
 
 [node name="Main" type="Node" unique_id=656760546]
-script = ExtResource("1_0xm2m")
-zombie_scene = ExtResource("2_h2yge")
+script = ExtResource("1_02nsg")
+zombie_scene = ExtResource("2_vspwy")
 
 [node name="ZombieSpawnTimer" type="Timer" parent="." unique_id=1590022068]
-wait_time = 0.5
+wait_time = 0.9
 
 [node name="zombiePath" type="Path2D" parent="." unique_id=354773541]
 curve = SubResource("Curve2D_7dm0k")
@@ -29,5 +30,8 @@ rotation = -0.0054347296
 
 [node name="StartTimer" type="Timer" parent="." unique_id=1871909053]
 
+[node name="HUD" parent="." unique_id=707462628 instance=ExtResource("3_7n028")]
+
 [connection signal="timeout" from="ZombieSpawnTimer" to="." method="_on_zombie_spawn_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="game_start"]
