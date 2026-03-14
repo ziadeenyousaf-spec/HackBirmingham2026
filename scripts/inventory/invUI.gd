@@ -4,12 +4,12 @@ extends CanvasLayer
 
 var SlotScene = preload("res://scenes/ui/inventory_slot.tscn")
 
-var opened = true
+var opened = false
 
 
 func _ready():
 
-	visible = opened
+	visible = false
 
 	# Create 20 UI slots
 	for i in range(Inventory.MAX_SLOTS):
