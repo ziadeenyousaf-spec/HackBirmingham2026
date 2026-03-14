@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bpdi0x13r3thp"]
+
+[ext_resource type="Script" uid="uid://bkj6lbpop17ea" path="res://scripts/test/testInv.gd" id="1_ni46q"]
+[ext_resource type="PackedScene" uid="uid://cvot0uoob0l5g" path="res://scenes/ui/inventory_ui.tscn" id="2_14blo"]
+
+[node name="TestInv" type="Node2D" unique_id=972486523]
+visible = false
+script = ExtResource("1_ni46q")
+
+[node name="InventoryUi" parent="." unique_id=1448409222 instance=ExtResource("2_14blo")]
