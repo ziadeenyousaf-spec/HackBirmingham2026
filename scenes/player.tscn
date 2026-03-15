@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d1bfd5mlait30" path="res://scripts/player/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://ondgc8kxbxl7" path="res://scripts/player/Screenshot From 2026-03-14 18-11-50.png" id="2_g2els"]
 [ext_resource type="PackedScene" uid="uid://cvot0uoob0l5g" path="res://scenes/ui/inventory_ui.tscn" id="3_qhqgy"]
+[ext_resource type="PackedScene" path="res://scenes/ui/main.tscn" id="4_dqkch"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2els"]
 
@@ -31,3 +32,5 @@ rotation_smoothing_enabled = true
 tile_set = SubResource("TileSet_g2els")
 
 [node name="CanvasLayer" parent="." unique_id=655112953 instance=ExtResource("3_qhqgy")]
+
+[node name="Main" parent="." unique_id=656760546 instance=ExtResource("4_dqkch")]

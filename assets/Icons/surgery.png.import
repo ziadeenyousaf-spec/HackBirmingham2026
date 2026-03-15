@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cb67wntdag7it"
-path="res://.godot/imported/surgery.png-36e58c83a96877d1608d9da6bc85c2e4.ctex"
+path="res://.godot/imported/surgery.png-fd1fd2f979df66d22cb22f0925e5bebf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/surgery.png"
-dest_files=["res://.godot/imported/surgery.png-36e58c83a96877d1608d9da6bc85c2e4.ctex"]
+source_file="res://assets/Icons/surgery.png"
+dest_files=["res://.godot/imported/surgery.png-fd1fd2f979df66d22cb22f0925e5bebf.ctex"]
 
 [params]
 
