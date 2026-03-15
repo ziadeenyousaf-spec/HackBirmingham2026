@@ -1,35 +1,94 @@
 extends CanvasLayer
 
 @onready var grid = $Panel/GridContainer
+@onready var equip_panel = $PanelEquip
+@onready var tooltip_label = $TooltipLabel
 
 var SlotScene = preload("res://scenes/ui/inventory_slot.tscn")
-
 var opened = false
-
+var hovered_slot = null
 
 func _ready():
-
 	visible = false
 
-	# Create 20 UI slots
+	# Inventory slots
 	for i in range(Inventory.MAX_SLOTS):
-
 		var slot = SlotScene.instantiate()
 		grid.add_child(slot)
-
 		slot.slot_index = i
 		slot.update_slot(i)
-
 		Inventory.slot_changed.connect(slot.update_slot)
+		slot.connect("mouse_entered_slot", Callable(self,"_on_slot_hovered"))
+		slot.connect("mouse_exited_slot", Callable(self,"_on_slot_exited"))
 
+	# Equipment slots
+	for equip_slot in equip_panel.get_children():
+		if equip_slot is EquipSlot:
+			equip_slot.allowed_class = equip_slot.name
+			equip_slot.type_label.text = equip_slot.name
+			equip_slot.connect("mouse_entered_slot", Callable(self,"_on_slot_hovered"))
+			equip_slot.connect("mouse_exited_slot", Callable(self,"_on_slot_exited"))
+			equip_slot.connect("item_equipped", Callable(self,"_on_item_equipped"))
+			equip_slot.connect("item_unequipped", Callable(self,"_on_item_unequipped"))
 
 func _unhandled_input(event):
-
 	if event.is_action_pressed("toggle_inventory"):
 		toggle_inventory()
 
-
 func toggle_inventory():
-
 	opened = !opened
 	visible = opened
+
+func _on_slot_hovered(slot):
+	hovered_slot = slot
+
+func _on_slot_exited(slot):
+	if hovered_slot == slot:
+		hovered_slot = null
+
+func _process(delta):
+	var slot_under_mouse = null
+
+	# Inventory hover
+	for child in grid.get_children():
+		if child is invSlot and child.get_global_rect().has_point(get_viewport().get_mouse_position()):
+			slot_under_mouse = child
+			break
+
+	# Equipment hover
+	if slot_under_mouse == null:
+		for child in equip_panel.get_children():
+			if child is EquipSlot and child.get_global_rect().has_point(get_viewport().get_mouse_position()):
+				slot_under_mouse = child
+				break
+
+	hovered_slot = slot_under_mouse
+
+	var item = null
+
+	if hovered_slot == null:
+		tooltip_label.visible = false
+		return
+
+	if hovered_slot is EquipSlot:
+		item = hovered_slot.slot_item
+	elif hovered_slot is invSlot:
+		var slot_data = Inventory.slots[hovered_slot.slot_index]
+		if slot_data != null:
+			item = slot_data.item
+
+	if item == null:
+		tooltip_label.visible = false
+		return
+
+	tooltip_label.visible = true
+	var item_name = item.name if "name" in item else "Unknown"
+	var item_desc = item.desc if "desc" in item else ""
+	tooltip_label.text = "%s\n%s" % [item_name, item_desc]
+	tooltip_label.global_position = get_viewport().get_mouse_position() + Vector2(10, 10)
+
+func _on_item_equipped(type, item):
+	pass # connect to player for stats
+
+func _on_item_unequipped(type, item):
+	pass # connect to player for stats

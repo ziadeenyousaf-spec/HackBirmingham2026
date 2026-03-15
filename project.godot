@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="HackBirmingham2026"
-run/main_scene="uid://bnnej2i8e7lc3"
+run/main_scene="uid://bpdi0x13r3thp"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

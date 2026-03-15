@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cds51o58nomci"]
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://cds51o58nomci"]
 
 [ext_resource type="Texture2D" uid="uid://dwyvjiw1bpfq7" path="res://icon.svg" id="1_cq0dm"]
-[ext_resource type="Script" uid="uid://bllgkn44f57qc" path="res://scripts/inventory/item.gd" id="1_qqs4b"]
+[ext_resource type="Script" uid="uid://ekqjqeuvw241" path="res://scripts/inventory/weapons.gd" id="2_cq0dm"]
 
 [resource]
-script = ExtResource("1_qqs4b")
+script = ExtResource("2_cq0dm")
+desc = "beep boop power +10000 attack"
+attInc = 10000
 name = "robotTest"
 icon = ExtResource("1_cq0dm")
-maxStack = 2
 metadata/_custom_type_script = "uid://bllgkn44f57qc"

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bm8ja7o24nlhi"]
+
+[ext_resource type="Script" uid="uid://dkdltp1b8hjwv" path="res://scripts/inventory/EquipSlot.gd" id="1_fj0sj"]
+[ext_resource type="Texture2D" uid="uid://borewphahekup" path="res://assets/Icons/inventory-background.png" id="2_mutwb"]
+
+[node name="EquipSlot" type="Panel" unique_id=288643992]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_fj0sj")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1465527220]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("2_mutwb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=934902003]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 2

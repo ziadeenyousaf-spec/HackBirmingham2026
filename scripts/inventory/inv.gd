@@ -1,39 +1,30 @@
 extends Node
 
-const MAX_SLOTS := 20
+const MAX_SLOTS = 20
+var slots = []
 
 signal slot_changed(index)
 
-var slots : Array = []
-
-
 func _ready():
-	# Initialize empty slots
 	for i in range(MAX_SLOTS):
 		slots.append(null)
 
-
 func add_item(item):
-	# Try stacking
+	# Try stacking first
 	for i in range(MAX_SLOTS):
 		var slot = slots[i]
-		if slot != null and slot.item == item and slot.count < item.maxStack:
-			slot.count += 1
-			slot_changed.emit(i)
-			return true
-
+		if slot != null and slot.item == item:
+			if slot.count < item.maxSize:
+				slot.count += 1
+				emit_signal("slot_changed", i)
+				return true
 	# Find empty slot
 	for i in range(MAX_SLOTS):
 		if slots[i] == null:
-			slots[i] = {
-				"item": item,
-				"count": 1
-			}
-			slot_changed.emit(i)
+			slots[i] = {"item": item, "count": 1}
+			emit_signal("slot_changed", i)
 			return true
-
 	return false
-
 
 func remove_item(index):
 	if index < 0 or index >= MAX_SLOTS:
@@ -44,4 +35,4 @@ func remove_item(index):
 	slot.count -= 1
 	if slot.count <= 0:
 		slots[index] = null
-	slot_changed.emit(index)
+	emit_signal("slot_changed", index)

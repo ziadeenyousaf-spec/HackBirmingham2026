@@ -5,3 +5,4 @@ extends Resource
 @export var name : String
 @export var icon : Texture2D
 @export var maxStack : int = 1
+@export var desc : String = "N/A"

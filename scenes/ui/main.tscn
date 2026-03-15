@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bn6gufa4e7toh"]
+[gd_scene format=3 uid="uid://coqnlr655lcm3"]
 
 [ext_resource type="Script" uid="uid://b7o4a0scebwrq" path="res://scripts/main/main.gd" id="1_02nsg"]
 [ext_resource type="PackedScene" uid="uid://b08hogcbcga5s" path="res://scenes/ui/zombie.tscn" id="2_vspwy"]

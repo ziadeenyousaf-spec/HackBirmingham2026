@@ -5,6 +5,7 @@ var speed : int = 300
 var health : int = 100
 var enemyHealth : int = 100
 var is_attacking : bool = false
+var attack : int = 100
 #@onready var anim = $AnimatedSprite
 
 
@@ -44,7 +45,7 @@ func _physics_process(_delta):
 
 func _unhandled_input(event):
 	if event.is_action_pressed("attack") and not is_attacking:
-		start_attack(20, enemyHealth)
+		start_attack(attack, enemyHealth)
 
 func start_attack(dmgToGive, eHealth):
 	eHealth -= dmgToGive
