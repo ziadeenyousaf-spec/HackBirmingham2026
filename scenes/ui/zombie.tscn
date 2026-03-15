@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://swkeugsgds68" path="res://assets/icons/Attack.png" id="2_el4te"]
 [ext_resource type="Texture2D" uid="uid://bb0cad2cpfuex" path="res://assets/icons/Dead.png" id="3_4x2t7"]
 [ext_resource type="Texture2D" uid="uid://c0abctnsceotf" path="res://assets/icons/Hurt.png" id="4_eem2d"]
+[ext_resource type="Texture2D" uid="uid://vv7n8tevphew" path="res://assets/icons/Idle.png" id="5_el4te"]
 [ext_resource type="Texture2D" uid="uid://eol3wudljnjn" path="res://assets/icons/Walk.png" id="5_wdv25"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ni6fi"]
@@ -57,6 +58,10 @@ region = Rect2(256, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8dj8"]
 atlas = ExtResource("4_eem2d")
 region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x2t7"]
+atlas = ExtResource("5_el4te")
+region = Rect2(0, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_roy8y"]
 atlas = ExtResource("5_wdv25")
@@ -133,7 +138,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yo31b")
 }],
-"loop": true,
+"loop": false,
 "name": &"dead",
 "speed": 5.0
 }, {
@@ -152,6 +157,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x2t7")
+}],
+"loop": true,
+"name": &"operated",
 "speed": 5.0
 }, {
 "frames": [{
@@ -203,8 +216,7 @@ metadata/_edit_group_ = true
 position = Vector2(69.5, 82.5)
 scale = Vector2(2.0859375, 2.2890625)
 sprite_frames = SubResource("SpriteFrames_pub2r")
-animation = &"attack"
-frame_progress = 0.4343011
+animation = &"dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1140379407]
 position = Vector2(66, 154.49998)
@@ -216,4 +228,5 @@ position = Vector2(66, 154.49998)
 scale = Vector2(2.0859365, 2.2890623)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
