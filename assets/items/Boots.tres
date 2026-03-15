@@ -1,8 +1,12 @@
-[gd_resource type="Resource" script_class="Item" format=3 uid="uid://bqvg64e31u8rm"]
+[gd_resource type="Resource" script_class="Boots" format=3 uid="uid://bqvg64e31u8rm"]
 
-[ext_resource type="Script" uid="uid://bllgkn44f57qc" path="res://scripts/inventory/item.gd" id="1_27q5y"]
+[ext_resource type="Texture2D" uid="uid://dprjrnywvahl7" path="res://assets/Icons/drip.png" id="1_v4f2n"]
+[ext_resource type="Script" uid="uid://enos64dfuw3x" path="res://scripts/inventory/Boots.gd" id="2_7jpef"]
 
 [resource]
-script = ExtResource("1_27q5y")
+script = ExtResource("2_7jpef")
+speedInc = 20
 name = "Boots"
+icon = ExtResource("1_v4f2n")
+desc = "Fuzzy warmth"
 metadata/_custom_type_script = "uid://bllgkn44f57qc"

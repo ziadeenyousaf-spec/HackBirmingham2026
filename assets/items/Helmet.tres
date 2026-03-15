@@ -1,7 +1,12 @@
-[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cmcj0re6wej0u"]
+[gd_resource type="Resource" script_class="Helmet" format=3 uid="uid://cmcj0re6wej0u"]
 
-[ext_resource type="Script" uid="uid://bllgkn44f57qc" path="res://scripts/inventory/item.gd" id="1_4cg25"]
+[ext_resource type="Texture2D" uid="uid://ovr5o6ynxorw" path="res://assets/Icons/helmet.png" id="1_h0xfa"]
+[ext_resource type="Script" uid="uid://c8fqxg5sjbd4a" path="res://scripts/inventory/Helmet.gd" id="2_chrwj"]
 
 [resource]
-script = ExtResource("1_4cg25")
+script = ExtResource("2_chrwj")
+healthInc = 50
+name = "Tin Helmet"
+icon = ExtResource("1_h0xfa")
+desc = "Forged by the mightiest blacksmits of a village of rats"
 metadata/_custom_type_script = "uid://bllgkn44f57qc"

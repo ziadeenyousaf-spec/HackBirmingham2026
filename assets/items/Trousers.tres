@@ -1,7 +1,12 @@
-[gd_resource type="Resource" script_class="Item" format=3 uid="uid://c76y1m4m4r72u"]
+[gd_resource type="Resource" script_class="Tunic" format=3 uid="uid://c76y1m4m4r72u"]
 
-[ext_resource type="Script" uid="uid://bllgkn44f57qc" path="res://scripts/inventory/item.gd" id="1_2jeou"]
+[ext_resource type="Texture2D" uid="uid://g1p7u2nqbbyb" path="res://assets/Icons/backpack.png" id="1_q150h"]
+[ext_resource type="Script" uid="uid://dsgl1wpydxdyw" path="res://scripts/inventory/Tunic.gd" id="2_nc8md"]
 
 [resource]
-script = ExtResource("1_2jeou")
+script = ExtResource("2_nc8md")
+HealthInc = 65
+name = "Backpack"
+icon = ExtResource("1_q150h")
+desc = "Protects your back from zombies"
 metadata/_custom_type_script = "uid://bllgkn44f57qc"

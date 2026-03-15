@@ -33,7 +33,8 @@ func _ready() -> void:
 	inventory_array = [preload("res://assets/items/Boots.tres"),
 					  preload("res://assets/items/Helmet.tres"),
 					  preload("res://assets/items/Trousers.tres"),
-					  preload("res://assets/items/Tunic.tres")]
+					  preload("res://assets/items/Tunic.tres"),
+					  preload("res://assets/items/sword.tres")]
 	inventory = get_tree().get_first_node_in_group("inventory")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

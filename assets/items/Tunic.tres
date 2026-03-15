@@ -1,7 +1,12 @@
-[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cmufinw46065m"]
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://cmufinw46065m"]
 
-[ext_resource type="Script" uid="uid://bllgkn44f57qc" path="res://scripts/inventory/item.gd" id="1_r1601"]
+[ext_resource type="Texture2D" uid="uid://cjv6xdy780p4q" path="res://assets/Icons/mace.png" id="1_hkk2t"]
+[ext_resource type="Script" uid="uid://ekqjqeuvw241" path="res://scripts/inventory/weapons.gd" id="2_gdmne"]
 
 [resource]
-script = ExtResource("1_r1601")
+script = ExtResource("2_gdmne")
+atkInc = 30
+name = "Mace"
+icon = ExtResource("1_hkk2t")
+desc = "Unfortunately does not hurt more from higher up like its blocky counterpart"
 metadata/_custom_type_script = "uid://bllgkn44f57qc"
