@@ -7,6 +7,8 @@ var health : int = 100
 var enemyHealth : int = 100
 var is_attacking : bool = false
 var attack : int = 100
+var touchingEnemy : bool = false
+var hud : Node=null
 #@onready var anim = $AnimatedSprite
 
 func _ready():

@@ -1,4 +1,4 @@
 class_name Helmet
 extends Item
 
-@export var HealthInc : int
+@export var healthInc : int
