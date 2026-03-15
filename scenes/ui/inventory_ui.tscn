@@ -40,7 +40,7 @@ offset_bottom = 160.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="helmet" type="VBoxContainer" parent="PanelEquip" unique_id=2144390869]
+[node name="container" type="VBoxContainer" parent="PanelEquip" unique_id=2144390869]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -52,23 +52,23 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
-[node name="EquipSlot" parent="PanelEquip/helmet" unique_id=288643992 instance=ExtResource("2_4ycse")]
+[node name="Weapon" parent="PanelEquip/container" unique_id=288643992 instance=ExtResource("2_4ycse")]
 layout_mode = 2
 allowed_class = "Weapon"
 
-[node name="EquipSlot2" parent="PanelEquip/helmet" unique_id=1334105978 instance=ExtResource("2_4ycse")]
+[node name="Helmet" parent="PanelEquip/container" unique_id=1334105978 instance=ExtResource("2_4ycse")]
 layout_mode = 2
 allowed_class = "Helmet"
 
-[node name="EquipSlot3" parent="PanelEquip/helmet" unique_id=533819490 instance=ExtResource("2_4ycse")]
+[node name="Tunic" parent="PanelEquip/container" unique_id=533819490 instance=ExtResource("2_4ycse")]
 layout_mode = 2
 allowed_class = "Tunic"
 
-[node name="EquipSlot4" parent="PanelEquip/helmet" unique_id=1357777887 instance=ExtResource("2_4ycse")]
+[node name="Trousers" parent="PanelEquip/container" unique_id=1357777887 instance=ExtResource("2_4ycse")]
 layout_mode = 2
 allowed_class = "Trousers"
 
-[node name="EquipSlot5" parent="PanelEquip/helmet" unique_id=1680853945 instance=ExtResource("2_4ycse")]
+[node name="Boots" parent="PanelEquip/container" unique_id=1680853945 instance=ExtResource("2_4ycse")]
 layout_mode = 2
 allowed_class = "Boots"
 

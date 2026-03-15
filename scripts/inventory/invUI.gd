@@ -8,10 +8,13 @@ var SlotScene = preload("res://scenes/ui/inventory_slot.tscn")
 var opened = false
 var hovered_slot = null
 
+signal item_equipped(type, item)
+signal item_unequipped(type, item)
+
 func _ready():
 	visible = false
 
-	# Inventory slots
+	# --- Inventory slots ---
 	for i in range(Inventory.MAX_SLOTS):
 		var slot = SlotScene.instantiate()
 		grid.add_child(slot)
@@ -21,15 +24,24 @@ func _ready():
 		slot.connect("mouse_entered_slot", Callable(self,"_on_slot_hovered"))
 		slot.connect("mouse_exited_slot", Callable(self,"_on_slot_exited"))
 
-	# Equipment slots
-	for equip_slot in equip_panel.get_children():
-		if equip_slot is EquipSlot:
-			equip_slot.allowed_class = equip_slot.name
-			equip_slot.type_label.text = equip_slot.name
-			equip_slot.connect("mouse_entered_slot", Callable(self,"_on_slot_hovered"))
-			equip_slot.connect("mouse_exited_slot", Callable(self,"_on_slot_exited"))
-			equip_slot.connect("item_equipped", Callable(self,"_on_item_equipped"))
-			equip_slot.connect("item_unequipped", Callable(self,"_on_item_unequipped"))
+	# --- Equipment slots ---
+	_connect_equip_slots(equip_panel)
+
+
+# Recursive function to find all EquipSlots in nested containers
+func _connect_equip_slots(node):
+	for child in node.get_children():
+		if child is EquipSlot:
+			# Setup slot
+			child.allowed_class = child.name
+			child.type_label.text = child.name
+			child.connect("mouse_entered_slot", Callable(self,"_on_slot_hovered"))
+			child.connect("mouse_exited_slot", Callable(self,"_on_slot_exited"))
+			child.connect("item_equipped", Callable(self,"_on_item_equipped"))
+			child.connect("item_unequipped", Callable(self,"_on_item_unequipped"))
+		elif child.get_child_count() > 0:
+			# Recurse into containers
+			_connect_equip_slots(child)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("toggle_inventory"):
@@ -88,7 +100,8 @@ func _process(delta):
 	tooltip_label.global_position = get_viewport().get_mouse_position() + Vector2(10, 10)
 
 func _on_item_equipped(type, item):
-	pass # connect to player for stats
+	print("repeater")
+	emit_signal("item_equipped",type,item)
 
 func _on_item_unequipped(type, item):
-	pass # connect to player for stats
+	emit_signal("item_unequipped",type,item)

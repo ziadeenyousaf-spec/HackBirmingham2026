@@ -44,9 +44,11 @@ func _drop_data(position, data):
 		item = from.take_item()
 	if slot_item != null:
 		Inventory.add_item(slot_item)
+		print("swap")
 		emit_signal("item_unequipped", allowed_class, slot_item)
 	slot_item = item
 	icon.texture = item.icon
+	print("Equip")
 	emit_signal("item_equipped", allowed_class, item)
 
 func take_item():
@@ -55,5 +57,6 @@ func take_item():
 	var item = slot_item
 	slot_item = null
 	icon.texture = placeholder_texture
+	print("Strip")
 	emit_signal("item_unequipped", allowed_class, item)
 	return item

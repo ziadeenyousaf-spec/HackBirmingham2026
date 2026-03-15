@@ -8,6 +8,42 @@ var is_attacking : bool = false
 var attack : int = 100
 #@onready var anim = $AnimatedSprite
 
+func _ready():
+	# Wait one frame to ensure UI exists
+	await get_tree().process_frame
+	var root = get_tree().current_scene
+	if root == null:
+		return
+
+	var inv_ui = root.get_node_or_null("/root/TestInv/Mainscene/CanvasLayer")
+	if inv_ui != null:
+		inv_ui.connect("item_equipped", Callable(self, "_on_item_equipped"))
+		inv_ui.connect("item_unequipped", Callable(self, "_on_item_unequipped"))
+		print("loaded?")
+	print("null")
+
+# --- Signal handlers ---
+func _on_item_equipped(type: String, item):
+	print("playerItemObtained")
+	if item == null:
+		return
+	if type == "Boots":
+		speed += item.speedInc
+	elif type == "Weapon":
+		attack += item.atkInc
+	else:
+		health += item.healthInc
+
+func _on_item_unequipped(type: String, item):
+	print("unequip")
+	if item == null:
+		return
+	if type == "Boots":
+		speed -= item.speedInc
+	elif type == "Weapon":
+		attack -= item.atkInc
+	else:
+		health -= item.healthInc
 
 func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right",
