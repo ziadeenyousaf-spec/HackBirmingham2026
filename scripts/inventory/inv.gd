@@ -6,6 +6,7 @@ var slots = []
 signal slot_changed(index)
 
 func _ready():
+	add_to_group("inventory")
 	for i in range(MAX_SLOTS):
 		slots.append(null)
 
