@@ -21,8 +21,7 @@ func update_slot(index):
 		count_label.text = ""
 	else:
 		icon.texture = slot.item.icon
-
+		
 		if slot.count > 1:
 			count_label.text = str(slot.count)
-		else:
-			count_label.text = ""
+	

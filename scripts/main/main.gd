@@ -47,6 +47,11 @@ func _on_zombie_spawn_timer_timeout() -> void:
 		
 		add_child(zombie) #add zombie child to scene
 		
+		#zombie hurt/attacked
+		#zombie.hurt()
+		#signal or smth when player attacks
+		#hitsTaken = hitsTaken+1
+		
 		# zombie dies
 		if hitsTaken==5:
 			zombie.die()
@@ -54,6 +59,12 @@ func _on_zombie_spawn_timer_timeout() -> void:
 			$HUD.updateScore(score) #update text
 			
 		# zombie attacks
+		#zombie.attack()
+		
+		#zombie operated on
+		#zombie.get_node("AnimatedSprite2D").animation="operated"
+		#zombie.get_node("AnimatedSprite2D").rotation_degrees=90 #lie down
+		#zombie.get_node("AnimatedSprite2D").play()
 		
 
 		

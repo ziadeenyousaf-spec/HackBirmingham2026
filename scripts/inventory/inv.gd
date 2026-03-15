@@ -44,4 +44,4 @@ func remove_item(index):
 	slot.count -= 1
 	if slot.count <= 0:
 		slots[index] = null
-	slot_changed.emit(index)
+	slot_changed.emit(index) 

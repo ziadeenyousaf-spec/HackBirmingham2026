@@ -49,4 +49,14 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 60
 text = "Game Over"
 
+[node name="PlayerHealth" type="Label" parent="." unique_id=1127630673]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "100"
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
