@@ -90,7 +90,7 @@ func _on_body_entered(body: Node) -> void:
 		
 	if body.is_in_group("player"):
 		if playerAttacked:
-			take_damage(20)
+			take_damage(player.attack)
 			playerAttacked=false
 		else:
 			attack()

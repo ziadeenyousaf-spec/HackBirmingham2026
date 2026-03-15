@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="helmet" format=3 uid="uid://c3qqeddml17nn"]
+[gd_resource type="Resource" script_class="Helmet" format=3 uid="uid://c3qqeddml17nn"]
 
 [ext_resource type="Texture2D" uid="uid://b35yvs62smeu7" path="res://assets/Icons/test.png" id="1_nd2xc"]
 [ext_resource type="Script" uid="uid://c8fqxg5sjbd4a" path="res://scripts/inventory/Helmet.gd" id="2_nd2xc"]
 
 [resource]
 script = ExtResource("2_nd2xc")
-HealthInc = 2025
+healthInc = -100
 name = "test"
 icon = ExtResource("1_nd2xc")
 desc = "Squared stat for a square boy"

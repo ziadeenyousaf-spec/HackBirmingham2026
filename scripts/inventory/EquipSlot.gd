@@ -33,6 +33,8 @@ func _can_drop_data(position, data):
 	if data == null or not data.has("item"):
 		return false
 	var item = data["item"]
+	if allowed_class == "":
+		return true
 	return item.get_script().get_global_name() == allowed_class
 
 func _drop_data(position, data):

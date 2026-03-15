@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dno7en1pb61u4" path="res://scripts/inventory/invUI.gd" id="1_7nagc"]
 [ext_resource type="PackedScene" uid="uid://bm8ja7o24nlhi" path="res://scenes/ui/EquipSlot.tscn" id="2_4ycse"]
+[ext_resource type="Script" uid="uid://bkwn47beqofxu" path="res://scripts/inventory/deathMenu.gd" id="3_drsq2"]
 
-[node name="CanvasLayer" type="CanvasLayer" unique_id=655112953]
+[node name="Inventory" type="CanvasLayer" unique_id=655112953]
+process_mode = 3
 layer = 0
 script = ExtResource("1_7nagc")
 
@@ -82,3 +84,44 @@ offset_right = -952.0
 offset_bottom = -578.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="DeathMenu" type="Panel" parent="." unique_id=1753010386]
+visible = false
+custom_minimum_size = Vector2(400, 300)
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 150.0
+grow_vertical = 2
+script = ExtResource("3_drsq2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeathMenu" unique_id=119800940]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -199.5
+offset_top = -92.0
+offset_right = 199.5
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Label" type="Label" parent="DeathMenu/VBoxContainer" unique_id=348955958]
+layout_mode = 2
+text = "Choose a piece of equipment to become part of you"
+horizontal_alignment = 1
+
+[node name="EquipSlot" parent="DeathMenu/VBoxContainer" unique_id=1426092588 instance=ExtResource("2_4ycse")]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="DeathMenu/VBoxContainer" unique_id=1025771430]
+layout_mode = 2
+text = "Revive"

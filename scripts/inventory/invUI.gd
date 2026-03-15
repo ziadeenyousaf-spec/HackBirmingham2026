@@ -7,6 +7,7 @@ extends CanvasLayer
 var SlotScene = preload("res://scenes/ui/inventory_slot.tscn")
 var opened = false
 var hovered_slot = null
+var invLocked = false
 
 signal item_equipped(type, item)
 signal item_unequipped(type, item)
@@ -44,12 +45,13 @@ func _connect_equip_slots(node):
 			_connect_equip_slots(child)
 
 func _unhandled_input(event):
-	if event.is_action_pressed("toggle_inventory"):
+	if event.is_action_pressed("toggle_inventory") and !invLocked:
 		toggle_inventory()
 
 func toggle_inventory():
 	opened = !opened
 	visible = opened
+	get_tree().paused=opened
 
 func _on_slot_hovered(slot):
 	hovered_slot = slot

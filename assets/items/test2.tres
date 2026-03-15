@@ -5,8 +5,7 @@
 
 [resource]
 script = ExtResource("2_cq0dm")
-desc = "beep boop power +10000 attack"
-attInc = 10000
 name = "robotTest"
 icon = ExtResource("1_cq0dm")
+desc = "beep boop power +10000 attack"
 metadata/_custom_type_script = "uid://bllgkn44f57qc"
