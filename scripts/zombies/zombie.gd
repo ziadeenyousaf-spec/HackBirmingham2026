@@ -30,10 +30,10 @@ func _ready() -> void:
 	
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
-	inventory_array = [preload("res://scripts/inventory/Boots.tres"),
-					  preload("res://scripts/inventory/Helmet.tres"),
-					  preload("res://scripts/inventory/Trousers.tres"),
-					  preload("res://scripts/inventory/Tunic.tres")]
+	inventory_array = [preload("res://assets/items/Boots.tres"),
+					  preload("res://assets/items/Helmet.tres"),
+					  preload("res://assets/items/Trousers.tres"),
+					  preload("res://assets/items/Tunic.tres")]
 	inventory = get_tree().get_first_node_in_group("inventory")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

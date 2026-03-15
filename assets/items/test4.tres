@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Boots" format=3 uid="uid://b6m7tpirj3dvo"]
 
-[ext_resource type="Texture2D" uid="uid://dprjrnywvahl7" path="res://assets/icons/drip.png" id="1_ujobi"]
-[ext_resource type="Script" path="res://scripts/inventory/Boots.gd" id="2_ve7to"]
+[ext_resource type="Texture2D" uid="uid://dprjrnywvahl7" path="res://assets/Icons/drip.png" id="1_ujobi"]
+[ext_resource type="Script" uid="uid://enos64dfuw3x" path="res://scripts/inventory/Boots.gd" id="2_ve7to"]
 
 [resource]
 script = ExtResource("2_ve7to")

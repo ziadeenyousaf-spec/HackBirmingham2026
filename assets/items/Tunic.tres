@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://cmufinw46065m"]
 
-[ext_resource type="Script" uid="uid://bllgkn44f57qc" path="res://scripts/inventory/item.gd" id="1_yf5oc"]
+[ext_resource type="Script" uid="uid://bllgkn44f57qc" path="res://scripts/inventory/item.gd" id="1_r1601"]
 
 [resource]
-script = ExtResource("1_yf5oc")
+script = ExtResource("1_r1601")
 metadata/_custom_type_script = "uid://bllgkn44f57qc"
