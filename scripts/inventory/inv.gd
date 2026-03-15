@@ -6,6 +6,7 @@ var slots = []
 signal slot_changed(index)
 
 func _ready():
+	add_to_group("inventory")
 	for i in range(MAX_SLOTS):
 		slots.append(null)
 
@@ -14,7 +15,7 @@ func add_item(item):
 	for i in range(MAX_SLOTS):
 		var slot = slots[i]
 		if slot != null and slot.item == item:
-			if slot.count < item.maxSize:
+			if slot.count < item.maxStack:
 				slot.count += 1
 				emit_signal("slot_changed", i)
 				return true

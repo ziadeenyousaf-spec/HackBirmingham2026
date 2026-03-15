@@ -9,6 +9,12 @@ var hud: Node=null
 var speed: float = 20
 var target_pos
 var isDead: bool=false
+var inventory: Node=null
+var inventory_array
+#create list of inventory items
+#to randomly choose from
+
+
 
 
 
@@ -24,7 +30,11 @@ func _ready() -> void:
 	
 	$AnimatedSprite2D.animation = "walk"
 	$AnimatedSprite2D.play()
-
+	inventory_array = [preload("res://scripts/inventory/Boots.tres"),
+					  preload("res://scripts/inventory/Helmet.tres"),
+					  preload("res://scripts/inventory/Trousers.tres"),
+					  preload("res://scripts/inventory/Tunic.tres")]
+	inventory = get_tree().get_first_node_in_group("inventory")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
@@ -47,6 +57,7 @@ func die():
 	if isDead:
 		return
 		
+	#play dead animation
 	isDead = true
 	$AnimatedSprite2D.animation = "dead"
 	$AnimatedSprite2D.play()
@@ -54,6 +65,19 @@ func die():
 	await $AnimatedSprite2D.animation_finished
 	$AnimatedSprite2D.stop()
 	queue_free()
+	hud = get_tree().get_first_node_in_group("hud")
+	
+	#increase score
+	if hud:
+		hud.score +=1
+		hud.updateScore(hud.score)
+		
+	#enemy drops
+	#add random item to inventory
+	var randomItem = inventory_array.pick_random()
+	if inventory:
+		inventory.add_item(randomItem)
+		print("item added")
 	
 func attack():
 	if isDead:
